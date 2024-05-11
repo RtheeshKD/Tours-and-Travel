@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tours and Travels Payment</title>
+  <style>
+    /* Enhanced styling for the payment form */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 50px;
+    }
+    h2 {
+      text-align: center;
+    }
+    form {
+      margin-top: 20px;
+      position: relative;
+    }
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    #error-message {
+      color: red;
+      margin-bottom: 10px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #qr-code-container {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+    #qr-code {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .fadeIn {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Make a Payment</h2>
+
+  <form id="payment-form">
+    <input type="text" id="full-name" placeholder="Full Name">
+    <input type="tel" id="phone" placeholder="Phone Number">
+    <input type="email" id="email" placeholder="Email">
+
+    <button id="submit">
+      Scan QR Code to Pay
+    </button>
+    <div id="error-message" role="alert"></div>
+  </form>
+
+  <div id="qr-code-container">
+    <img id="qr-code" src="scan.jpg" alt="QR Code">  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('payment-form');
+    var qrCodeContainer = document.getElementById('qr-code-container');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Simulate QR code generation delay
+      setTimeout(function() {
+        qrCodeContainer.classList.add('fadeIn');
+        qrCodeContainer.style.display = 'block';
+      }, 1000);
+    });
+  });
+</script>
+
+</body>
+</html>
